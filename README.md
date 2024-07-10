@@ -1,2 +1,1 @@
-# PRODIGY_CS_01
-# task 1
+This is a python program for Caesar cipher Algorithm which can encrypt and decrypt text by allowing user to input message and key(shift) value to perform encryption and decryption.

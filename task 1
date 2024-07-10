@@ -1,0 +1,53 @@
+# PRODIGY_CS_01
+# task 1
+cs="abcdefghijklmnopqrstuvwxyz"
+numlet=len(cs)
+def encrypt(plaintext,key):
+    caesarcipher=''
+    for letter in plaintext:
+        letter=letter.lower()
+        if not letter==' ':
+            index=cs.find(letter)
+            if index==-1:
+                plaintext += letter
+            else:
+                newindex= index + key
+                if newindex >= numlet:
+                    newindex -= numlet
+                plaintext += cs[newindex]
+    return plaintext
+def decrypt(ciphertext,key):
+    caesarcipher=''
+    for letter in ciphertext:
+        letter=letter.lower()
+        if not letter==' ':
+            index=cs.find(letter)
+            if index==-1:
+                ciphertext += letter
+            else:
+                newindex= index - key
+                if newindex < 0:
+                    newindex +=numlet
+                ciphertext += cs[newindex]
+    return ciphertext
+
+
+
+
+print("Do you want to encrypt or Decrypt")
+choice = input("enter e or d:").lower()
+if choice=="e":
+    print("You have chose encryption")
+    print("how many shift do you want should be 1 to 26")
+    key=int(input("Enter key from 1 to 26"))
+    text=input("Enter the text you want to encrypt:")
+    ciphertext=encrypt(text,key)
+    print("ciphertext:",ciphertext)
+elif choice=="d":
+    print("You have chose decryption")
+    key=int(input("Enter key from 1 to 26"))
+    text=input("Enter the text you want to decrypt:")
+    plaintext=decrypt(text,key)
+    print("plaintext:",plaintext)
+
+
